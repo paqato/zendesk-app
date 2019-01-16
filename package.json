@@ -1,0 +1,77 @@
+{
+    "name": "paqato-zendesk-app",
+    "version": "1.0.0",
+    "private": false,
+    "description": "PAQATO Zendesk App",
+    "keywords": [
+        "PAQATO",
+        "Zendesk",
+        "App"
+    ],
+    "homepage": "https://www.paqato.com/",
+    "bugs": {
+        "email": "service@paqato.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/paqato/zendesk-app"
+    },
+    "license": "MPL-2.0",
+    "author": "PAQATO (https://www.paqato.com/)",
+    "contributors": [
+        {
+            "name": "Luka Schaefer",
+            "email": "luka.schaefer@paqato.com"
+        }
+    ],
+    "scripts": {
+        "build": "webpack -p --mode=production",
+        "build:dev": "webpack --mode=development",
+        "format": "prettier-standard .babelrc postcss.config.js webpack.config.js src/**/*.{js,vue}",
+        "lint": "standard",
+        "start": "zat server -c settings.json -p ./dist --unattended",
+        "watch": "webpack --watch --mode=development"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/polyfill": "^7.2.5",
+        "@babel/preset-env": "^7.3.1",
+        "@vue/cli-plugin-babel": "^3.3.0",
+        "@vue/cli-plugin-eslint": "^3.3.0",
+        "@vue/cli-service": "^3.3.0",
+        "@zendeskgarden/css-bedrock": "^7.0.3",
+        "@zendeskgarden/css-buttons": "^6.0.3",
+        "@zendeskgarden/css-callouts": "^3.0.3",
+        "@zendeskgarden/css-grid": "^0.1.6",
+        "@zendeskgarden/css-utilities": "^3.0.1",
+        "@zendeskgarden/svg-icons": "^5.1.0",
+        "babel-loader": "^8.0.5",
+        "clean-webpack-plugin": "^0.1.19",
+        "copy-webpack-plugin": "^4.5.2",
+        "core-js": "2",
+        "css-loader": "^1.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "mini-css-extract-plugin": "^0.4.1",
+        "moment": "^2.24.0",
+        "moment-locales-webpack-plugin": "^1.0.7",
+        "node-sass": "^4.11.0",
+        "paqato-api-client": "git+ssh://git@github.com:paqato/js-api-client.git",
+        "postcss-import": "^11.1.0",
+        "postcss-loader": "^2.1.6",
+        "postcss-preset-env": "^5.2.1",
+        "precss": "^3.1.2",
+        "prettier-standard": "^9.1.1",
+        "sass-loader": "^7.1.0",
+        "standard": "^11.0.1",
+        "vue": "^2.6.2",
+        "vue-loader": "^15.6.2",
+        "vue-svg-loader": "^0.11.0",
+        "vue-template-compiler": "^2.6.2",
+        "webpack": "^4.29.0",
+        "webpack-bundle-analyzer": "^3.0.3",
+        "webpack-cli": "^3.2.1"
+    },
+    "engines": {
+        "node": ">=6.11.5"
+    }
+}

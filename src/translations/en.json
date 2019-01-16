@@ -1,0 +1,20 @@
+{
+    "app": {
+        "name": "PAQATO",
+        "short_description": "PAQATO for Zendesk",
+        "long_description": "PAQATO for Zendesk",
+        "installation_instructions": "Retrieve your API key from https://myadmin.paqato.com/api/key, enter it and click Install",
+        "title": "PAQATO",
+        "parameters": {
+            "token": {
+                "label": "API key",
+                "helpText": "Enter your PAQATO API key here"
+            }
+        }
+    },
+    "Most recent orders": "Most recent orders",
+    "Current state: ": "Current state: ",
+    "No orders found": "No orders found",
+    "State history": "State history",
+    "Loading...": "Loading..."
+}
