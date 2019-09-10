@@ -8,7 +8,7 @@
       </div>
       <div class="col u-ta-right">
         <div class="l-btn-group" style="font-size: 0;">
-          <a class="c-btn c-btn--icon" :href="p.trackingLink" target="_blank" rel="noreferrer noopener">
+          <a v-if="p.trackingLink" class="c-btn c-btn--icon" :href="p.trackingLink" target="_blank" rel="noreferrer noopener">
             <img class="c-btn__icon" v-if="p.carrierLogo" :src="p.carrierLogo" :alt="p.carrierName" />
             <template v-else>
               {{ p.carrierName }}
