@@ -55,7 +55,11 @@ module.exports = {
     new CleanWebpackPlugin(['dist/*']),
 
     // Copy over static assets
-    new CopyWebpackPlugin([{ from: 'src/manifest.json', to: '../', flatten: true }, { from: 'assets/images/*', to: '.', flatten: true }, {from: 'assets/screenshot-*.png', to: '.', flatten: true}]),
+    new CopyWebpackPlugin([
+      { from: 'src/manifest.json', to: '../', flatten: true },
+      { from: 'assets/images/*', to: '.', flatten: true },
+      { from: 'assets/screenshot-*.png', to: '.', flatten: true }
+    ]),
 
     new MiniCssExtractPlugin({
       filename: '[name].css'
