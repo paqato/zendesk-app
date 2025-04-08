@@ -1,6 +1,6 @@
 {
     "name": "paqato-zendesk-app",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "private": false,
     "description": "PAQATO Zendesk App",
     "keywords": [
@@ -20,7 +20,7 @@
     "author": "PAQATO (https://www.paqato.com/)",
     "contributors": [
         {
-            "name": "Luka Schaefer",
+            "name": "Luka Schäfer",
             "email": "luka.schaefer@paqato.com"
         }
     ],
@@ -29,7 +29,7 @@
         "build:dev": "webpack --mode=development",
         "format": "prettier-standard .babelrc postcss.config.js webpack.config.js src/**/*.{js,vue}",
         "lint": "standard",
-        "start": "zat server -c settings.json -p ./dist --unattended",
+        "start": "zat server --port 80 --bind 0.0.0.0 -c settings.json -p ./dist --unattended",
         "watch": "webpack --watch --mode=development"
     },
     "devDependencies": {
@@ -55,7 +55,7 @@
         "moment": "^2.24.0",
         "moment-locales-webpack-plugin": "^1.0.7",
         "node-sass": "^4.11.0",
-        "paqato-api-client": "git+ssh://git@github.com:paqato/js-api-client.git",
+        "paqato-api-client": "https://github.com/paqato/js-api-client",
         "postcss-import": "^11.1.0",
         "postcss-loader": "^2.1.6",
         "postcss-preset-env": "^5.2.1",

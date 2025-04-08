@@ -6548,9 +6548,9 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
 
-"paqato-api-client@git+ssh://git@github.com:paqato/js-api-client.git":
+"paqato-api-client@https://github.com/paqato/js-api-client":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:paqato/js-api-client.git#1b9ac74b471235dcc34b40e9d013afc5c9b3b42d"
+  resolved "https://github.com/paqato/js-api-client#aaf2560197c8d54d76535f75d5af934a376e94f6"
   dependencies:
     query-string "^6.2.0"
   optionalDependencies:

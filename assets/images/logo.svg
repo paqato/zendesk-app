@@ -1,1 +1,29 @@
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" id="Ebene_1" x="0px" y="0px" viewBox="0 0 256 256" xml:space="preserve" width="256" height="256"><metadata id="metadata19"/><defs id="defs17"/><g id="g5" transform="matrix(1.2995246,0,0,1.2995246,-267.25041,-85.251987)"><polygon class="st1" points="271.9,226.8 306.9,191.8 279.3,164.1 209.5,164.1 " id="polygon7" style="fill:#614086;"/><polygon class="st0" points="306.7,136.3 271.8,101.4 209.5,164.1 279.3,164.1 " id="polygon9" style="fill:#513570;"/><polygon class="st2" points="271.9,226.8 336.1,226.8 398.7,164.1 334.5,164.1 " id="polygon11" style="fill:#efa635;"/><polygon class="st3" points="334.5,164.1 398.8,164.1 398.8,164.1 398.7,164.1 336.1,101.4 271.9,101.4 " id="polygon13" style="fill:#fbbc43;"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffb000;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #29124f;
+      }
+    </style>
+  </defs>
+  <g id="Gruppe_11277" data-name="Gruppe 11277">
+    <g id="Gruppe_11277-2" data-name="Gruppe 11277">
+      <g id="Gruppe_11264" data-name="Gruppe 11264">
+        <rect id="Rechteck_1563" data-name="Rechteck 1563" class="cls-3" width="320" height="320" rx="39.12" ry="39.12"/>
+      </g>
+      <g id="Gruppe_11265" data-name="Gruppe 11265">
+        <path id="Pfad_10161" data-name="Pfad 10161" class="cls-1" d="M225.79,160h-57.69l-73.89,94.57h57.69l73.89-94.57Z"/>
+        <path id="Pfad_10162" data-name="Pfad 10162" class="cls-2" d="M225.79,160h-57.69l-73.89-94.57h57.69l73.89,94.57Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
