@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 320 320">
+  <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 152)  -->
   <defs>
     <style>
-      .cls-1 {
+      .st0 {
         fill: #ffb000;
       }
 
-      .cls-2 {
+      .st1 {
         fill: #fff;
       }
 
-      .cls-3 {
+      .st2 {
         fill: #29124f;
       }
     </style>
   </defs>
-  <g id="Gruppe_11277" data-name="Gruppe 11277">
-    <g id="Gruppe_11277-2" data-name="Gruppe 11277">
-      <g id="Gruppe_11264" data-name="Gruppe 11264">
-        <rect id="Rechteck_1563" data-name="Rechteck 1563" class="cls-3" width="320" height="320" rx="39.12" ry="39.12"/>
+  <g id="Gruppe_11277">
+    <g id="Gruppe_11277-2">
+      <g id="Gruppe_11264">
+        <rect id="Rechteck_1563" class="st2" y="0" width="320" height="320"/>
       </g>
-      <g id="Gruppe_11265" data-name="Gruppe 11265">
-        <path id="Pfad_10161" data-name="Pfad 10161" class="cls-1" d="M225.79,160h-57.69l-73.89,94.57h57.69l73.89-94.57Z"/>
-        <path id="Pfad_10162" data-name="Pfad 10162" class="cls-2" d="M225.79,160h-57.69l-73.89-94.57h57.69l73.89,94.57Z"/>
+      <g id="Gruppe_11265">
+        <path id="Pfad_10161" class="st0" d="M225.8,160h-57.7l-73.9,94.6h57.7l73.9-94.6h0Z"/>
+        <path id="Pfad_10162" class="st1" d="M225.8,160h-57.7l-73.9-94.6h57.7l73.9,94.6h0Z"/>
       </g>
     </g>
   </g>
