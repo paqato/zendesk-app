@@ -5,6 +5,8 @@
         <strong class="u-mr-xs">
           {{ p.trackingCode }}
         </strong>
+        <br />
+        {{ __('Order') }}:  {{ p.order }}
       </div>
       <div class="col u-ta-right">
         <div class="l-btn-group" style="font-size: 0;">

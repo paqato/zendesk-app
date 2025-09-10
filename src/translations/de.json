@@ -16,5 +16,6 @@
     "Current state: ": "Aktueller Status: ",
     "No orders found": "Keine Bestellungen gefunden",
     "State history": "Statushistorie",
-    "Loading...": "Wird geladen..."
+    "Loading...": "Wird geladen...",
+    "Order": "Auftrag"
 }

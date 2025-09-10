@@ -16,5 +16,6 @@
     "Current state: ": "Current state: ",
     "No orders found": "No orders found",
     "State history": "State history",
-    "Loading...": "Loading..."
+    "Loading...": "Loading...",
+    "Order": "Order"
 }
