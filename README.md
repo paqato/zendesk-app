@@ -13,6 +13,18 @@ cp settings.json.dist settings.json
 ./build.sh
 ```
 
+## Package
+
+Um die App als ZIP-Datei für den Upload in Zendesk zu erstellen:
+
+```shell
+NODE_OPTIONS=--openssl-legacy-provider yarn build
+cd dist && zip -r ../paqato-zendesk-app.zip .
+```
+
+Die ZIP-Datei kann dann in Zendesk hochgeladen werden unter:
+**Admin Center → Apps and integrations → Apps → Zendesk Support apps → Upload private app**
+
 ## Run Zendesk Server
 
 ```shell
