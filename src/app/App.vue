@@ -18,7 +18,7 @@ const { t, locale } = useI18n()
 const zafClient = useZafClient()
 const suggestions = useSuggestions()
 const shipments = useShipments()
-const { toasts, showToast } = useToast()
+const { toasts, showToast, clearAllToasts } = useToast()
 
 // Provide composables to child components
 provide(suggestionsKey, suggestions)
@@ -60,6 +60,13 @@ const isSplitPanel = computed(() => enabledFeaturesCount.value === 2)
 async function initialize(): Promise<void> {
   try {
     zafClient.init()
+
+    // Register cleanup handler for Zendesk app lifecycle
+    zafClient.onEvent('app.willDestroy', () => {
+      suggestions.cleanup()
+      shipments.cleanup()
+      clearAllToasts()
+    })
 
     // Resize iframe to use available height
     await zafClient.invoke('resize', { width: '100%', height: '75vh' })

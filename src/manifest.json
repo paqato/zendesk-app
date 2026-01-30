@@ -27,7 +27,8 @@
       "name": "token",
       "type": "text",
       "required": true,
-      "secure": true
+      "secure": true,
+      "scopes": ["header", "url"]
     },
     {
       "name": "paqato_shipment_history_enabled",
