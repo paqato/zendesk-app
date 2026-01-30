@@ -54,7 +54,15 @@ const currentStateInfo = computed(() => {
     <!-- Header: Tracking + Order + Links -->
     <div class="shipment-header">
       <div class="shipment-header-left">
-        <div class="shipment-tracking">{{ shipment.trackingCode }}</div>
+        <a
+          v-if="shipment.paqatoLink"
+          :href="shipment.paqatoLink"
+          target="_blank"
+          class="shipment-tracking shipment-tracking-link"
+        >
+          {{ shipment.trackingCode }}
+        </a>
+        <div v-else class="shipment-tracking">{{ shipment.trackingCode }}</div>
         <div class="shipment-order">{{ t('order') }}: {{ shipment.order || '-' }}</div>
       </div>
       <div class="shipment-links">
@@ -146,6 +154,15 @@ const currentStateInfo = computed(() => {
   font-family: monospace;
   color: var(--paqato-text);
   font-weight: 600;
+}
+
+.shipment-tracking-link {
+  color: var(--paqato-primary);
+  text-decoration: none;
+}
+
+.shipment-tracking-link:hover {
+  text-decoration: underline;
 }
 
 .shipment-order {

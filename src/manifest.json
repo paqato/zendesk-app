@@ -39,7 +39,7 @@
       "name": "paqato_ai_agent_enabled",
       "type": "checkbox",
       "required": false,
-      "default": false
+      "default": true
     }
   ],
   "domainWhitelist": [

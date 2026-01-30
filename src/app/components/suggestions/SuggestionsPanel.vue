@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { suggestionsKey } from '../../composables/useSuggestions'
 import { toastKey } from '../../composables/useToast'
 import type { Suggestion } from '../../types'
 import SuggestionCard from './SuggestionCard.vue'
 import RatingModal from './RatingModal.vue'
-import logoSmall from '@assets/logo-small.png'
+import frame1a from '@assets/images/frame-1a.png'
+import frame1b from '@assets/images/frame-1b.png'
+import frame1c from '@assets/images/frame-1c.png'
 
 const { t } = useI18n()
 
@@ -20,6 +22,35 @@ const toast = inject(toastKey)!
 const emit = defineEmits<{
   oauthConnect: []
 }>()
+
+// =============================================================================
+// Carousel
+// =============================================================================
+
+const carouselImages = [frame1a, frame1b, frame1c]
+const currentSlide = ref(0)
+let carouselInterval: ReturnType<typeof setInterval> | null = null
+
+function startCarousel(): void {
+  carouselInterval = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % carouselImages.length
+  }, 10000)
+}
+
+function stopCarousel(): void {
+  if (carouselInterval) {
+    clearInterval(carouselInterval)
+    carouselInterval = null
+  }
+}
+
+onMounted(() => {
+  startCarousel()
+})
+
+onUnmounted(() => {
+  stopCarousel()
+})
 
 // =============================================================================
 // Event Handlers
@@ -85,19 +116,18 @@ function handleOAuthConnect(): void {
       <span>{{ t('loading') }}</span>
     </div>
 
-    <!-- Not Licensed State -->
-    <div v-else-if="suggestions.oauthState.value === 'not-licensed'" class="info-container-small">
-      <div class="info-icon-small locked">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-        </svg>
-      </div>
-      <h4>{{ t('ai_agent_not_licensed_title') }}</h4>
-      <p>{{ t('ai_agent_not_licensed_message') }}</p>
-      <a href="https://www.paqato.com" target="_blank" class="btn btn-small btn-primary btn-with-logo">
-        <img :src="logoSmall" alt="PAQATO" class="btn-logo" />
-        {{ t('feature_purchase') }}
+    <!-- Not Licensed State - Image Carousel -->
+    <div v-else-if="suggestions.oauthState.value === 'not-licensed'" class="carousel-container">
+      <a href="https://www.paqato.com/zendesk/" target="_blank" class="carousel-link">
+        <div class="carousel">
+          <img
+            v-for="(image, index) in carouselImages"
+            :key="index"
+            :src="image"
+            :class="['carousel-image', { active: index === currentSlide }]"
+            alt="PAQATO Feature"
+          />
+        </div>
       </a>
     </div>
 
@@ -232,6 +262,41 @@ function handleOAuthConnect(): void {
   color: var(--paqato-text-light);
   font-size: 12px;
   margin-bottom: 12px;
+}
+
+/* Carousel */
+.carousel-container {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-link {
+  display: block;
+  text-decoration: none;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.carousel-image.active {
+  position: relative;
+  opacity: 1;
 }
 
 /* Suggestions Container */
