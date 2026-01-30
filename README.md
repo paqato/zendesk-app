@@ -61,13 +61,9 @@ yarn type-check
 
 ### Creating a release
 
-```bash
-yarn build
-cd dist
-zip -r ../paqato-zendesk.zip .
-```
-
-Upload the generated `paqato-zendesk.zip` to Zendesk.
+1. Increment the version numbers in *package.json* and *src/manifest.json*
+2. Commit, tag and push your changes. This will trigger a GitHub workflow that builds the app and creates a new release.
+3. Upload the generated `paqato-zendesk-app.zip` to Zendesk.
 
 ## Tech Stack
 
