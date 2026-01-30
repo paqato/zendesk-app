@@ -1,21 +1,79 @@
 {
-    "app": {
-        "name": "PAQATO",
-        "short_description": "PAQATO für Zendesk",
-        "long_description": "# PAQATO\n\n\n\n## Nie wieder Zeit im Kundenservice verschwenden\n\n\n\nPAQATO ist eines der führenden Systeme zur Versandkommunikation und Versandanalyse.\n\nDie Software erkennt unter anderem Störungen im Versandprozess bevor Endkunden diese bemerken und benachrichtigt Händler wie auch Endkunden automatisiert und proaktiv.\n\nMit PAQATO schaffen Sie mehr Transparenz in Ihren Versandprozess und steigern die Zufriedenheit Ihrer Kunden signifikant.\n\nÜber 15 Millionen Kunden wurden bereits glücklich und zufrieden gemacht.\n\n\n\nDie Lösung ist ideal für Unternehmen mit Paketversand.\n\nPAQATO analysiert und trackt Pakete auf dem Versandweg und erstellt dabei automatisch Tickets in Zendesk.\n\nSo werden Sie jederzeit über die relevantesten Ereignisse und insbesondere Störungen auf dem Versandweg benachrichtigt.\n\nSollten künftig klassische Fälle wie Adressfehler oder beschädigte Pakete eintreten, erhalten Sie eine unmittelbare Benachrichtigung und Transparenz darüber, sodass Sie proaktiv reagieren können, bevor Ihre Kunden von Problemen etwas mitkriegen.\n\n\n\nVerschwenden Sie keine Zeit mehr damit Bestellnummern rauszusuchen oder die Sendungsverfolgung mühsam auf der Seite des Paketdienstleisters zu suchen.\n\n\n\n* Direkte Benachrichtigung bei Störungen im Versand\n\n* Steigerung der Mitarbeiterproduktivität und Kundenzufriedenheit\n\n* Weniger Arbeitsaufkommen und Kostenreduktion\n\n\n\nBei eingehenden Serviceanfragen bietet die PAQATO Zendesk-App eine perfekte Hilfestellung:\n\nBei der Öffnung eines Tickets erhalten Sie mittels Anzeige des aktuellen Versandstatus der letzten Bestellung ein schnelles Briefing.\n\nEbenso erscheinen alle relevanten Kundeninformationen und Paketereignisse, sowie auch bisherige Bestellungen und die dazugehörige Sendungsverfolgung in einer Übersicht.\n\nDie App ermöglicht es Ihnen so die aufkommenden Serviceanfragen ohne große Recherche und mithilfe weniger Klicks zu bearbeiten.\n\n",
-        "installation_instructions": "1. Rufen Sie ihren API-Schlüssel auf [https://app.paqato.com/settings/company/api-key](https://app.paqato.com/settings/company/api-key) ab. Kontaktieren Sie uns unter [sales@paqato.com](mailto:sales@paqato.com), falls Sie einen Account benötigen.\n\n1. Geben Sie den API Key ein und drücken Sie \"Installieren\".",
-        "title": "PAQATO",
-        "parameters": {
-            "token": {
-                "label": "API-Schlüssel",
-                "helpText": "Geben Sie hier ihren API-Schlüssel von PAQATO ein"
-            }
-        }
-    },
-    "Most recent orders": "Letzte Bestellungen",
-    "Current state: ": "Aktueller Status: ",
-    "No orders found": "Keine Bestellungen gefunden",
-    "State history": "Statushistorie",
-    "Loading...": "Wird geladen...",
-    "Order": "Auftrag"
+  "app": {
+    "name": "PAQATO Zendesk Integration",
+    "short_description": "Integrieren Sie PAQATO Services in Ihren Zendesk Arbeitsbereich",
+    "long_description": "Diese App integriert PAQATO Services direkt in die Zendesk-Oberfläche. Funktionen:\n\n• PAQATO AI Agent: Automatische Antwortvorschläge für Support-Tickets\n• PAQATO Sendungshistorie: Sendungsverfolgung für Kundenbestellungen anzeigen\n\n**Datenverarbeitung:**\nDiese App greift auf folgende Daten zu und überträgt diese an PAQATO-Server:\n• Ticket-ID und Konversationsinhalt (für KI-Antwortgenerierung)\n• E-Mail-Adresse des Anfragenden (für Sendungshistorie)\n• Zendesk-Subdomain (für OAuth-Authentifizierung)\n\nDie Datenverarbeitung erfolgt gemäß der PAQATO-Datenschutzrichtlinie. Daten werden nicht an Dritte weitergegeben, außer soweit für die Funktionalität der App erforderlich.",
+    "installation_instructions": "1. Geben Sie Ihren PAQATO API-Key ein\n2. Klicken Sie auf 'Installieren'\n3. Verbinden Sie sich mit Zendesk über den OAuth-Button",
+    "parameters": {
+      "token": {
+        "label": "PAQATO API-Key",
+        "helpText": "Ihr persönlicher API-Schlüssel für die PAQATO-Integration. https://app.paqato.com/settings/company/api-key"
+      },
+      "paqato_ai_agent_enabled": {
+        "label": "KI-Antwortvorschläge aktivieren",
+        "helpText": "Aktiviert automatische Antwortvorschläge durch den PAQATO AI Agent"
+      },
+      "paqato_shipment_history_enabled": {
+        "label": "Sendungshistorie anzeigen",
+        "helpText": "Zeigt die Sendungshistorie im Ticket an"
+      }
+    }
+  },
+  "loading": "Lade Vorschläge...",
+  "no_suggestions": "Keine Vorschläge verfügbar",
+  "rate": "Bewerten",
+  "positive": "Hilfreich",
+  "negative": "Nicht hilfreich",
+  "feedback_placeholder": "Optionales Feedback...",
+  "save": "Speichern",
+  "cancel": "Abbrechen",
+  "error_loading": "Fehler beim Laden der Vorschläge",
+  "error_saving": "Fehler beim Speichern",
+  "success_rated": "Bewertung gespeichert",
+  "feature_disabled_title": "Keine Features aktiviert",
+  "feature_disabled_message": "Bitte wenden Sie sich an Ihren Zendesk Administrator, um Features zu aktivieren.",
+  "feature_not_licensed_title": "Feature nicht verfügbar",
+  "feature_not_licensed_message": "Dieses Feature ist nicht in Ihrem aktuellen Paket enthalten.",
+  "feature_purchase": "Feature erwerben",
+  "shipment_history": "PAQATO Sendungshistorie",
+  "shipments_loading": "Sendungen werden geladen...",
+  "no_shipments": "Keine Sendungen gefunden",
+  "order": "Auftrag",
+  "state_history": "Statushistorie",
+  "show_state_history": "Statushistorie anzeigen",
+  "current_status": "Aktueller Status",
+  "previous": "Zurück",
+  "next": "Weiter",
+  "load_older_suggestions": "Ältere Vorschläge laden",
+  "page_info": "Seite {current} von {total}",
+  "close": "Schließen",
+  "shipment_not_licensed_title": "Sendungshistorie nicht verfügbar",
+  "shipment_not_licensed_message": "Diese Funktion ist nicht in Ihrem aktuellen Paket enthalten.",
+  "ai_agent_not_licensed_title": "AI Agent nicht verfügbar",
+  "ai_agent_not_licensed_message": "Diese Funktion ist nicht in Ihrem aktuellen Paket enthalten.",
+  "ai_agent_oauth_title": "Verbindung erforderlich",
+  "ai_agent_oauth_message": "Verbinden Sie Ihren Zendesk Account um den AI Agent zu nutzen.",
+  "retry": "Erneut versuchen",
+  "refresh": "Aktualisieren",
+  "connect": "Verbinden",
+  "api_key_invalid_title": "API-Schlüssel ungültig",
+  "api_key_invalid_message": "Der konfigurierte API-Schlüssel ist ungültig oder abgelaufen. Bitte informieren Sie Ihren Zendesk Administrator.",
+  "waiting_for_ai": "KI generiert Antwort...",
+  "no_ticket_found": "Kein Ticket gefunden",
+  "no_state_history": "Keine Statushistorie verfügbar",
+  "no_auto_response": "Keine automatische Antwort verfügbar",
+  "select_rating_required": "Bitte wählen Sie eine Bewertung",
+  "error_connection": "Fehler beim Starten der Verbindung",
+  "time_ago_days": "vor {count} Tag(en)",
+  "time_ago_hours": "vor {count} Stunde(n)",
+  "time_ago_minutes": "vor {count} Minute(n)",
+  "time_ago_now": "gerade eben",
+  "use_response": "Antwort verwenden",
+  "response_copied": "Antwort in Editor kopiert",
+  "error_copying": "Fehler beim Kopieren",
+  "error_no_text": "Kein Text verfügbar",
+  "status_already_sent": "Bereits versendet",
+  "status_ai_suggestion": "KI-Vorschlag",
+  "suggestions_refreshed": "Vorschläge aktualisiert",
+  "shipments_refreshed": "Sendungen aktualisiert"
 }

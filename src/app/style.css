@@ -1,0 +1,39 @@
+/* Global CSS Variables */
+:root {
+  --paqato-primary: #1f73b7;
+  --paqato-primary-dark: #144a75;
+  --paqato-success: #228f67;
+  --paqato-warning: #c38f00;
+  --paqato-error: #cc3340;
+  --paqato-text: #2f3941;
+  --paqato-text-light: #68737d;
+  --paqato-border: #d8dcde;
+  --paqato-background: #f8f9f9;
+  --paqato-white: #ffffff;
+  --paqato-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--paqato-text);
+  background-color: var(--paqato-white);
+}
+
+#app {
+  height: 100%;
+}

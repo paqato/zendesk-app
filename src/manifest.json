@@ -1,28 +1,49 @@
 {
-    "name": "PAQATO",
-    "author": {
-        "name": "PAQATO",
-        "email": "service@paqato.com",
-        "url": "https://www.paqato.com"
+  "name": "PAQATO Zendesk Integration",
+  "iconURL": "assets/logo.png",
+  "author": {
+    "name": "PAQATO GmbH",
+    "email": "support@paqato.com",
+    "url": "https://paqato.com"
+  },
+  "defaultLocale": "de",
+  "private": false,
+  "termsConditionsURL": "https://www.paqato.com/agb",
+  "privacyPolicyURL": "https://www.paqato.com/datenschutz",
+  "version": "2.0.0",
+  "frameworkVersion": "2.0",
+  "singleInstall": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/index.html",
+        "flexible": true,
+        "icon": "assets/logo-small.png"
+      }
+    }
+  },
+  "parameters": [
+    {
+      "name": "token",
+      "type": "text",
+      "required": true,
+      "secure": true
     },
-    "defaultLocale": "de",
-    "private": false,
-    "location": {
-        "support": {
-            "ticket_sidebar": "assets/iframe.html"
-        }
+    {
+      "name": "paqato_shipment_history_enabled",
+      "type": "checkbox",
+      "required": false,
+      "default": true
     },
-    "version": "1.0.5",
-    "frameworkVersion": "2.0",
-    "domainWhitelist": [
-        "api.paqato.com"
-    ],
-    "parameters": [
-        {
-            "name": "token",
-            "type": "text",
-            "required": true,
-            "secure": true
-        }
-    ]
+    {
+      "name": "paqato_ai_agent_enabled",
+      "type": "checkbox",
+      "required": false,
+      "default": false
+    }
+  ],
+  "domainWhitelist": [
+    "moni.paqato.com",
+    "api.paqato.com"
+  ]
 }

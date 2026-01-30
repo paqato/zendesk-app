@@ -1,21 +1,79 @@
 {
-    "app": {
-        "name": "PAQATO",
-        "short_description": "PAQATO for Zendesk",
-        "long_description": "# PAQATO\n\n\n\n## Never waste time in customer service again\n\n\n\nPAQATO is one of the leading systems for post-purchase communication and shipping analysis.\n\nAmong other things, the software detects disruptions in the shipping process before end customers notice them and notifies dealers and end customers automatically and proactively.\n\nWith PAQATO you create more transparency in your shipping process and significantly increase the satisfaction of your customers.\n\nOver 15 million customers have already been made happy and satisfied.\n\n\n\nThe solution is ideal for companies with parcel shipping.\n\nPAQATO analyzes and tracks parcels on their way and automatically creates tickets in Zendesk.\n\nThis way you will always be informed about the most relevant events and especially disruptions on the shipping route.\n\nShould cases such as address errors or damaged parcels occur in the future, you will receive immediate notification and transparency so that you can react proactively, before your customers become aware of any problems.\n\n\n\nNo more wasting time searching for order numbers or tracking shipments on the parcel service's website.\n\n\n\n* Direct notification in the event of shipping disruptions\n\n* Increase in employee productivity and customer satisfaction\n\n* Workload and cost reduction\n\n\n\nThe PAQATO Zendesk app offers perfect assistance for incoming service requests:\n\nWhen viewing a ticket, the app will display the current shipping status for a customer's order.\n\nAll relevant customer information and events, as well as previous orders and the corresponding shipment tracking are also displayed in one overview.\n\nThe app enables you to process service requests without extensive research and with just a few clicks.\n\n",
-        "installation_instructions": "1. Retrieve your API key from [https://app.paqato.com/settings/company/api-key](https://app.paqato.com/settings/company/api-key). Contact us at [sales@paqato.com](mailto:sales@paqato.com) if you need an account.\n\n1. Enter the API key and click Install.",
-        "title": "PAQATO",
-        "parameters": {
-            "token": {
-                "label": "API key",
-                "helpText": "Enter your PAQATO API key here"
-            }
-        }
-    },
-    "Most recent orders": "Most recent orders",
-    "Current state: ": "Current state: ",
-    "No orders found": "No orders found",
-    "State history": "State history",
-    "Loading...": "Loading...",
-    "Order": "Order"
+  "app": {
+    "name": "PAQATO Zendesk Integration",
+    "short_description": "Integrate PAQATO services into your Zendesk workspace",
+    "long_description": "This app integrates PAQATO services directly into the Zendesk interface. Features include:\n\n• PAQATO AI Agent: Automatic response suggestions for support tickets\n• PAQATO Shipment History: View shipment tracking information for customer orders\n\n**Data Disclosure:**\nThis app accesses and transmits the following data to PAQATO servers:\n• Ticket ID and conversation content (for AI response generation)\n• Requester email address (for shipment history lookup)\n• Zendesk subdomain (for OAuth authentication)\n\nData is processed in accordance with PAQATO's privacy policy. No data is shared with third parties beyond what is necessary for the app's functionality.",
+    "installation_instructions": "1. Enter your PAQATO API key\n2. Click 'Install'\n3. Connect to Zendesk via the OAuth button",
+    "parameters": {
+      "token": {
+        "label": "PAQATO API Key",
+        "helpText": "Your personal API key for the PAQATO integration. https://app.paqato.com/settings/company/api-key"
+      },
+      "paqato_ai_agent_enabled": {
+        "label": "Enable AI response suggestions",
+        "helpText": "Enables automatic response suggestions by the PAQATO AI Agent"
+      },
+      "paqato_shipment_history_enabled": {
+        "label": "Show shipment history",
+        "helpText": "Shows the shipment history in the ticket"
+      }
+    }
+  },
+  "loading": "Loading suggestions...",
+  "no_suggestions": "No suggestions available",
+  "rate": "Rate",
+  "positive": "Helpful",
+  "negative": "Not helpful",
+  "feedback_placeholder": "Optional feedback...",
+  "save": "Save",
+  "cancel": "Cancel",
+  "error_loading": "Error loading suggestions",
+  "error_saving": "Error saving",
+  "success_rated": "Rating saved",
+  "feature_disabled_title": "No features enabled",
+  "feature_disabled_message": "Please contact your Zendesk administrator to enable features.",
+  "feature_not_licensed_title": "Feature not available",
+  "feature_not_licensed_message": "This feature is not included in your current package.",
+  "feature_purchase": "Get this feature",
+  "shipment_history": "PAQATO Shipment History",
+  "shipments_loading": "Loading shipments...",
+  "no_shipments": "No shipments found",
+  "order": "Order",
+  "state_history": "Status History",
+  "show_state_history": "Show status history",
+  "current_status": "Current status",
+  "previous": "Previous",
+  "next": "Next",
+  "load_older_suggestions": "Load older suggestions",
+  "page_info": "Page {current} of {total}",
+  "close": "Close",
+  "shipment_not_licensed_title": "Shipment history not available",
+  "shipment_not_licensed_message": "This feature is not included in your current package.",
+  "ai_agent_not_licensed_title": "AI Agent not available",
+  "ai_agent_not_licensed_message": "This feature is not included in your current package.",
+  "ai_agent_oauth_title": "Connection required",
+  "ai_agent_oauth_message": "Connect your Zendesk account to use the AI Agent.",
+  "retry": "Retry",
+  "refresh": "Refresh",
+  "connect": "Connect",
+  "api_key_invalid_title": "API key invalid",
+  "api_key_invalid_message": "The configured API key is invalid or expired. Please contact your Zendesk administrator.",
+  "waiting_for_ai": "AI is generating response...",
+  "no_ticket_found": "No ticket found",
+  "no_state_history": "No status history available",
+  "no_auto_response": "No automatic response available",
+  "select_rating_required": "Please select a rating",
+  "error_connection": "Error starting connection",
+  "time_ago_days": "{count} day(s) ago",
+  "time_ago_hours": "{count} hour(s) ago",
+  "time_ago_minutes": "{count} minute(s) ago",
+  "time_ago_now": "just now",
+  "use_response": "Use response",
+  "response_copied": "Response copied to editor",
+  "error_copying": "Error copying",
+  "error_no_text": "No text available",
+  "status_already_sent": "Already sent",
+  "status_ai_suggestion": "AI suggestion",
+  "suggestions_refreshed": "Suggestions refreshed",
+  "shipments_refreshed": "Shipments refreshed"
 }
