@@ -24,6 +24,8 @@ export function useAiAgentApi() {
       secure: true,
       headers: {
         Authorization: 'Bearer {{setting.token}}',
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       contentType: 'application/json',
       data: data ? JSON.stringify(data) : undefined,

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { copyFileSync, mkdirSync, existsSync, readdirSync } from 'fs'
+import { copyFileSync, mkdirSync, existsSync } from 'fs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -53,18 +53,24 @@ export default defineConfig({
           resolve(assetsDir, 'logo.svg')
         )
 
-        // Copy screenshots directly to assets/
-        const screenshotsDir = resolve(__dirname, 'src/assets/screenshots')
-        if (existsSync(screenshotsDir)) {
-          const screenshots = readdirSync(screenshotsDir).filter(f => f.endsWith('.png'))
-          screenshots.forEach(file => {
-            copyFileSync(
-              resolve(screenshotsDir, file),
-              resolve(assetsDir, file)
-            )
-          })
-        }
+        // Copy screenshots
+        copyFileSync(
+          resolve(__dirname, 'src/assets/screenshot-0.png'),
+          resolve(assetsDir, 'screenshot-0.png')
+        )
+        copyFileSync(
+          resolve(__dirname, 'src/assets/screenshot-1.png'),
+          resolve(assetsDir, 'screenshot-1.png')
+        )
+        copyFileSync(
+          resolve(__dirname, 'src/assets/screenshot-2.png'),
+          resolve(assetsDir, 'screenshot-2.png')
+        )
 
+        copyFileSync(
+          resolve(__dirname, 'src/assets/screenshot-3.png'),
+          resolve(assetsDir, 'screenshot-3.png')
+        )
         console.log('Zendesk assets copied to dist/')
       }
     }
