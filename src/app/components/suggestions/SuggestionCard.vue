@@ -31,12 +31,12 @@ function formatTimeAgo(dateString: string): string {
 </script>
 
 <template>
-  <div class="suggestion-card" :class="{ rated: suggestion.rating, error: !suggestion.is_success }">
+  <div class="suggestion-card" :class="{ rated: suggestion.rating, notice: !suggestion.is_success }">
     <!-- Status Badge -->
     <div class="suggestion-status">
       <span
         v-if="!suggestion.is_success"
-        class="status-badge error"
+        class="status-badge notice"
       >
         {{ t('status_error') }}
       </span>
@@ -46,8 +46,8 @@ function formatTimeAgo(dateString: string): string {
       <span class="suggestion-time">{{ formatTimeAgo(suggestion.created_at) }}</span>
     </div>
 
-    <!-- Error Text -->
-    <div v-if="!suggestion.is_success" class="suggestion-text error-text">{{ suggestion.error }}</div>
+    <!-- Notice Text -->
+    <div v-if="!suggestion.is_success" class="suggestion-text notice-text">{{ suggestion.error }}</div>
 
     <!-- Suggestion Text -->
     <div v-else class="suggestion-text">{{ suggestion.text }}</div>
@@ -92,13 +92,13 @@ function formatTimeAgo(dateString: string): string {
   background: #f6fbf9;
 }
 
-.suggestion-card.error {
-  border-color: var(--paqato-error);
-  background: #fef2f2;
+.suggestion-card.notice {
+  border-color: #93c5fd;
+  background: #eff6ff;
 }
 
-.error-text {
-  color: var(--paqato-error);
+.notice-text {
+  color: #1e40af;
 }
 
 .suggestion-status {
@@ -128,9 +128,9 @@ function formatTimeAgo(dateString: string): string {
   color: var(--paqato-warning);
 }
 
-.status-badge.error {
-  background: #fef2f2;
-  color: var(--paqato-error);
+.status-badge.notice {
+  background: #dbeafe;
+  color: #1e40af;
 }
 
 .suggestion-time {
