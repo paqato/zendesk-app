@@ -14,6 +14,8 @@ export interface Suggestion {
   created_at: string
   edited: boolean
   rating?: SuggestionRating
+  is_success: boolean
+  error?: string
 }
 
 export interface SuggestionsPagination {

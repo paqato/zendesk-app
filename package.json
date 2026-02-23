@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "lint": "eslint src --ext .vue,.ts --fix",
     "format": "prettier --write src/**/*.{vue,ts,json}",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "package": "yarn build && cd dist && zip -r ../paqato-zendesk-app.zip . -x '.*'"
   },
   "dependencies": {
     "vue": "^3.5.0",

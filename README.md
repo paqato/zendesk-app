@@ -55,6 +55,9 @@ yarn dev
 # Build for production
 yarn build
 
+# Build and package as ZIP for Zendesk upload
+yarn package
+
 # Type checking
 yarn type-check
 ```

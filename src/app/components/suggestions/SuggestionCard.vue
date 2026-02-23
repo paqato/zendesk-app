@@ -31,20 +31,29 @@ function formatTimeAgo(dateString: string): string {
 </script>
 
 <template>
-  <div class="suggestion-card" :class="{ rated: suggestion.rating }">
+  <div class="suggestion-card" :class="{ rated: suggestion.rating, error: !suggestion.is_success }">
     <!-- Status Badge -->
     <div class="suggestion-status">
-      <span class="status-badge" :class="getConfidenceClass(suggestion.confidence)">
+      <span
+        v-if="!suggestion.is_success"
+        class="status-badge error"
+      >
+        {{ t('status_error') }}
+      </span>
+      <span v-else class="status-badge" :class="getConfidenceClass(suggestion.confidence)">
         {{ suggestion.edited ? t('status_already_sent') : t('status_ai_suggestion') }}
       </span>
       <span class="suggestion-time">{{ formatTimeAgo(suggestion.created_at) }}</span>
     </div>
 
-    <!-- Suggestion Text -->
-    <div class="suggestion-text">{{ suggestion.text }}</div>
+    <!-- Error Text -->
+    <div v-if="!suggestion.is_success" class="suggestion-text error-text">{{ suggestion.error }}</div>
 
-    <!-- Actions -->
-    <div class="suggestion-actions">
+    <!-- Suggestion Text -->
+    <div v-else class="suggestion-text">{{ suggestion.text }}</div>
+
+    <!-- Actions (hidden for errors) -->
+    <div v-if="suggestion.is_success" class="suggestion-actions">
       <button class="btn btn-small btn-primary" @click="emit('use', suggestion)">
         {{ t('use_response') }}
       </button>
@@ -83,6 +92,15 @@ function formatTimeAgo(dateString: string): string {
   background: #f6fbf9;
 }
 
+.suggestion-card.error {
+  border-color: var(--paqato-error);
+  background: #fef2f2;
+}
+
+.error-text {
+  color: var(--paqato-error);
+}
+
 .suggestion-status {
   display: flex;
   justify-content: space-between;
@@ -108,6 +126,11 @@ function formatTimeAgo(dateString: string): string {
 .status-badge.medium {
   background: #fff8e6;
   color: var(--paqato-warning);
+}
+
+.status-badge.error {
+  background: #fef2f2;
+  color: var(--paqato-error);
 }
 
 .suggestion-time {
