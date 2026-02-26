@@ -67,10 +67,6 @@ export default defineConfig({
           resolve(assetsDir, 'screenshot-2.png')
         )
 
-        copyFileSync(
-          resolve(__dirname, 'src/assets/screenshot-3.png'),
-          resolve(assetsDir, 'screenshot-3.png')
-        )
         console.log('Zendesk assets copied to dist/')
       }
     }
