@@ -28,6 +28,7 @@ const isApiKeyInvalid = ref(false)
 
 // Modal state
 const selectedShipmentId = ref<string | null>(null)
+const selectedOrderShipmentId = ref<string | null>(null)
 
 // Context
 let requesterEmail: string | null = null
@@ -43,6 +44,13 @@ export function useShipments() {
     if (!selectedShipmentId.value) return null
     return (
       shipments.value.find((s) => s.id === selectedShipmentId.value) ?? null
+    )
+  })
+
+  const selectedOrderShipment = computed(() => {
+    if (!selectedOrderShipmentId.value) return null
+    return (
+      shipments.value.find((s) => s.id === selectedOrderShipmentId.value) ?? null
     )
   })
 
@@ -81,7 +89,7 @@ export function useShipments() {
       headers: {
         'paqato-system-name': 'zendesk',
         'paqato-system-version': '1',
-        'paqato-plugin-version': '2.0',
+        'paqato-plugin-version': '2.1',
       },
     })
   }
@@ -151,6 +159,14 @@ export function useShipments() {
     selectedShipmentId.value = null
   }
 
+  function openOrderDetailsModal(shipmentId: string): void {
+    selectedOrderShipmentId.value = shipmentId
+  }
+
+  function closeOrderDetailsModal(): void {
+    selectedOrderShipmentId.value = null
+  }
+
   // =============================================================================
   // Initialize
   // =============================================================================
@@ -166,6 +182,7 @@ export function useShipments() {
     isNotLicensed.value = false
     isApiKeyInvalid.value = false
     selectedShipmentId.value = null
+    selectedOrderShipmentId.value = null
   }
 
   return {
@@ -177,9 +194,11 @@ export function useShipments() {
     isNotLicensed,
     isApiKeyInvalid,
     selectedShipmentId,
+    selectedOrderShipmentId,
 
     // Computed
     selectedShipment,
+    selectedOrderShipment,
     hasPagination,
     canGoPrevious,
     canGoNext,
@@ -193,5 +212,7 @@ export function useShipments() {
     goToNextPage,
     openStatesModal,
     closeStatesModal,
+    openOrderDetailsModal,
+    closeOrderDetailsModal,
   }
 }

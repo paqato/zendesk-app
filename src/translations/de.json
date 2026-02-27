@@ -76,5 +76,19 @@
   "status_ai_suggestion": "KI-Vorschlag",
   "suggestions_refreshed": "Vorschläge aktualisiert",
   "shipments_refreshed": "Sendungen aktualisiert",
-  "status_error": "Hinweis"
+  "status_error": "Hinweis",
+  "order_details": "Bestelldetails",
+  "order_number": "Bestellnummer",
+  "order_date": "Bestelldatum",
+  "estimated_delivery": "Voraussichtl. Lieferung",
+  "articles": "Artikel",
+  "product_name": "Produktname",
+  "sku": "SKU",
+  "quantity": "Menge",
+  "total_amount": "Gesamtbetrag",
+  "pod_download": "Zustellnachweis",
+  "signature_download": "Signatur",
+  "carrier_reroute": "Umverfügung",
+  "not_available": "Nicht verfügbar",
+  "no_articles": "Keine Artikel vorhanden"
 }

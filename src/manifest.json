@@ -10,7 +10,7 @@
   "private": false,
   "termsConditionsURL": "https://www.paqato.com/agb",
   "privacyPolicyURL": "https://www.paqato.com/datenschutz",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "frameworkVersion": "2.0",
   "singleInstall": true,
   "location": {

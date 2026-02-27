@@ -6,6 +6,7 @@ import { toastKey } from '../../composables/useToast'
 import type { Shipment } from '../../types'
 import ShipmentCard from './ShipmentCard.vue'
 import ShipmentStatesModal from './ShipmentStatesModal.vue'
+import OrderDetailsModal from './OrderDetailsModal.vue'
 import logoSmall from '@assets/logo-small.png'
 
 const { t } = useI18n()
@@ -53,6 +54,14 @@ function handleShowHistory(shipment: Shipment): void {
 
 function handleCloseModal(): void {
   shipments.closeStatesModal()
+}
+
+function handleShowOrderDetails(shipment: Shipment): void {
+  shipments.openOrderDetailsModal(shipment.id)
+}
+
+function handleCloseOrderDetailsModal(): void {
+  shipments.closeOrderDetailsModal()
 }
 </script>
 
@@ -102,6 +111,7 @@ function handleCloseModal(): void {
             :key="shipment.id"
             :shipment="shipment"
             @show-history="handleShowHistory"
+            @show-order-details="handleShowOrderDetails"
           />
         </div>
 
@@ -131,6 +141,13 @@ function handleCloseModal(): void {
       :shipment="shipments.selectedShipment.value"
       :is-open="shipments.selectedShipment.value !== null"
       @close="handleCloseModal"
+    />
+
+    <!-- Order Details Modal -->
+    <OrderDetailsModal
+      :shipment="shipments.selectedOrderShipment.value"
+      :is-open="shipments.selectedOrderShipment.value !== null"
+      @close="handleCloseOrderDetailsModal"
     />
   </div>
 </template>

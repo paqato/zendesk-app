@@ -76,5 +76,19 @@
   "status_ai_suggestion": "AI suggestion",
   "suggestions_refreshed": "Suggestions refreshed",
   "shipments_refreshed": "Shipments refreshed",
-  "status_error": "Notice"
+  "status_error": "Notice",
+  "order_details": "Order Details",
+  "order_number": "Order Number",
+  "order_date": "Order Date",
+  "estimated_delivery": "Estimated Delivery",
+  "articles": "Articles",
+  "product_name": "Product Name",
+  "sku": "SKU",
+  "quantity": "Quantity",
+  "total_amount": "Total Amount",
+  "pod_download": "Proof of Delivery",
+  "signature_download": "Signature",
+  "carrier_reroute": "Rerouting",
+  "not_available": "Not available",
+  "no_articles": "No articles available"
 }
