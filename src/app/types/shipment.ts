@@ -18,9 +18,13 @@ export interface EstimatedDelivery {
 }
 
 export interface OrderItem {
-  productName?: string
-  sku?: string
+  lineItemNumber?: string
+  articleNumber?: string
+  name?: string
   quantity?: number
+  price?: string
+  totalPrice?: string
+  currency?: string
 }
 
 export interface OrderDetails {
@@ -37,7 +41,6 @@ export interface Shipment {
   trackingCode: string
   order: string
   name: string
-  email: string
   street?: string
   zipCode?: string
   city?: string
@@ -49,10 +52,17 @@ export interface Shipment {
   carrierName: string
   carrierLogo: string
   portalLink?: string
-  podLink: string | null
-  signatureLinks: string[]
+  shopToken?: string
+  hasProofOfDelivery: boolean
+  signatureIds: number[]
   estimatedDelivery: EstimatedDelivery | null
   orderDetails: OrderDetails | null
+}
+
+export interface FileDownloadResponse {
+  data: string
+  contentType: string
+  filename: string
 }
 
 export interface ShipmentsPagination {

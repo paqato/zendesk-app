@@ -5,6 +5,7 @@ import type {
   Shipment,
   ShipmentsPagination,
   ShipmentsResponse,
+  FileDownloadResponse,
   ApiError,
 } from '../types'
 
@@ -29,6 +30,10 @@ const isApiKeyInvalid = ref(false)
 // Modal state
 const selectedShipmentId = ref<string | null>(null)
 const selectedOrderShipmentId = ref<string | null>(null)
+
+// Download state
+const downloadingPod = ref<string | null>(null)
+const downloadingSignature = ref<string | null>(null)
 
 // Context
 let requesterEmail: string | null = null
@@ -168,6 +173,76 @@ export function useShipments() {
   }
 
   // =============================================================================
+  // Downloads
+  // =============================================================================
+
+  async function downloadFile(url: string, fallbackFilename: string): Promise<void> {
+    const response = await request<FileDownloadResponse>({
+      url,
+      type: 'GET',
+      secure: true,
+      dataType: 'json',
+      headers: {
+        'paqato-system-name': 'zendesk',
+        'paqato-system-version': '1',
+        'paqato-plugin-version': '2.1',
+      },
+    })
+
+    const byteCharacters = atob(response.data)
+    const byteNumbers = new Uint8Array(byteCharacters.length)
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i)
+    }
+    const blob = new Blob([byteNumbers], { type: response.contentType })
+
+    const blobUrl = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = blobUrl
+    link.download = response.filename || fallbackFilename
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(blobUrl)
+  }
+
+  async function downloadPod(shipment: Shipment): Promise<void> {
+    const shopTokenParam = shipment.shopToken
+      ? `&shopToken=${encodeURIComponent(shipment.shopToken)}`
+      : ''
+    const url =
+      `${PAQATO_API_BASE_URL}/v3/shipments/${encodeURIComponent(shipment.order)}/${encodeURIComponent(shipment.trackingCode)}/pod?` +
+      `format=base64` +
+      `&token={{setting.token}}` +
+      shopTokenParam
+
+    downloadingPod.value = shipment.id
+    try {
+      await downloadFile(url, `pod-${shipment.id}.pdf`)
+    } finally {
+      downloadingPod.value = null
+    }
+  }
+
+  async function downloadSignature(shipment: Shipment, signatureId: number): Promise<void> {
+    const shopTokenParam = shipment.shopToken
+      ? `&shopToken=${encodeURIComponent(shipment.shopToken)}`
+      : ''
+    const url =
+      `${PAQATO_API_BASE_URL}/v3/shipments/${encodeURIComponent(shipment.order)}/${encodeURIComponent(shipment.trackingCode)}/signatures/${signatureId}?` +
+      `format=base64` +
+      `&token={{setting.token}}` +
+      shopTokenParam
+
+    downloadingSignature.value = shipment.id
+    try {
+      await downloadFile(url, `signature-${signatureId}.pdf`)
+    } finally {
+      downloadingSignature.value = null
+    }
+  }
+
+  // =============================================================================
   // Initialize
   // =============================================================================
 
@@ -195,6 +270,8 @@ export function useShipments() {
     isApiKeyInvalid,
     selectedShipmentId,
     selectedOrderShipmentId,
+    downloadingPod,
+    downloadingSignature,
 
     // Computed
     selectedShipment,
@@ -214,5 +291,7 @@ export function useShipments() {
     closeStatesModal,
     openOrderDetailsModal,
     closeOrderDetailsModal,
+    downloadPod,
+    downloadSignature,
   }
 }

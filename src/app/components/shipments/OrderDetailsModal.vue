@@ -66,16 +66,18 @@ function handleClose(): void {
           <table class="articles-table">
             <thead>
               <tr>
+                <th>{{ t('article_number') }}</th>
                 <th>{{ t('product_name') }}</th>
-                <th>{{ t('sku') }}</th>
                 <th>{{ t('quantity') }}</th>
+                <th>{{ t('price') }}</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in orderDetails.items" :key="index">
-                <td>{{ item.productName || '-' }}</td>
-                <td>{{ item.sku || '-' }}</td>
+                <td>{{ item.articleNumber || '-' }}</td>
+                <td>{{ item.name || '-' }}</td>
                 <td>{{ item.quantity ?? '-' }}</td>
+                <td>{{ item.price ? `${item.price} ${item.currency || ''}`.trim() : '-' }}</td>
               </tr>
             </tbody>
           </table>

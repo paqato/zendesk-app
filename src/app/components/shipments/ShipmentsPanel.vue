@@ -63,6 +63,22 @@ function handleShowOrderDetails(shipment: Shipment): void {
 function handleCloseOrderDetailsModal(): void {
   shipments.closeOrderDetailsModal()
 }
+
+async function handleDownloadPod(shipment: Shipment): Promise<void> {
+  try {
+    await shipments.downloadPod(shipment)
+  } catch {
+    toast.showToast(t('download_error'), 'error')
+  }
+}
+
+async function handleDownloadSignature(shipment: Shipment): Promise<void> {
+  try {
+    await shipments.downloadSignature(shipment, shipment.signatureIds[0])
+  } catch {
+    toast.showToast(t('download_error'), 'error')
+  }
+}
 </script>
 
 <template>
@@ -110,8 +126,12 @@ function handleCloseOrderDetailsModal(): void {
             v-for="shipment in shipments.shipments.value"
             :key="shipment.id"
             :shipment="shipment"
+            :is-downloading-pod="shipments.downloadingPod.value === shipment.id"
+            :is-downloading-signature="shipments.downloadingSignature.value === shipment.id"
             @show-history="handleShowHistory"
             @show-order-details="handleShowOrderDetails"
+            @download-pod="handleDownloadPod"
+            @download-signature="handleDownloadSignature"
           />
         </div>
 

@@ -82,13 +82,15 @@
   "order_date": "Order Date",
   "estimated_delivery": "Estimated Delivery",
   "articles": "Articles",
-  "product_name": "Product Name",
-  "sku": "SKU",
-  "quantity": "Quantity",
+  "article_number": "Article No.",
+  "product_name": "Description",
+  "quantity": "Qty",
+  "price": "Price",
   "total_amount": "Total Amount",
   "pod_download": "Proof of Delivery",
   "signature_download": "Signature",
   "carrier_reroute": "Rerouting",
   "not_available": "Not available",
-  "no_articles": "No articles available"
+  "no_articles": "No articles available",
+  "download_error": "Download failed"
 }
