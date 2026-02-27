@@ -9,6 +9,7 @@ export interface ZafRequestOptions {
   headers?: Record<string, string>
   contentType?: string
   data?: string
+  dataType?: 'json' | 'text'
 }
 
 export interface ZafMetadata {

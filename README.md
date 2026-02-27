@@ -64,7 +64,10 @@ yarn type-check
 
 ### Creating a release
 
-1. Increment the version numbers in *package.json* and *src/manifest.json*
+1. Update the version in these 3 files:
+   - `package.json` → `"version": "X.Y.Z"`
+   - `src/manifest.json` → `"version": "X.Y.Z"` (NOT `frameworkVersion` — that's the Zendesk Apps Framework version)
+   - `src/app/composables/useShipments.ts` → `'paqato-plugin-version': 'X.Y'` (API request header)
 2. Commit, tag and push your changes. This will trigger a GitHub workflow that builds the app and creates a new release.
 3. Upload the generated `paqato-zendesk-app.zip` to Zendesk.
 

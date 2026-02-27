@@ -9,10 +9,15 @@ const { t } = useI18n()
 
 const props = defineProps<{
   shipment: Shipment
+  isDownloadingPod?: boolean
+  isDownloadingSignature?: boolean
 }>()
 
 const emit = defineEmits<{
   'show-history': [shipment: Shipment]
+  'show-order-details': [shipment: Shipment]
+  'download-pod': [shipment: Shipment]
+  'download-signature': [shipment: Shipment]
 }>()
 
 // Build address string
@@ -47,6 +52,23 @@ const currentStateInfo = computed(() => {
   if (!currentState.value) return props.shipment.state || '-'
   return formatStateInfo(currentState.value)
 })
+
+const formattedEstimatedDelivery = computed(() => {
+  const ed = props.shipment.estimatedDelivery
+  if (!ed) return null
+  const { date } = formatScanDateTime(ed.date)
+  let result = date
+  if (ed.timeFrom && ed.timeTo) {
+    result += ` ${ed.timeFrom} - ${ed.timeTo}`
+  } else if (ed.timeFrom) {
+    result += ` ${ed.timeFrom}`
+  }
+  return result
+})
+
+const hasOrderDetails = computed(() => {
+  return props.shipment.orderDetails != null
+})
 </script>
 
 <template>
@@ -63,7 +85,16 @@ const currentStateInfo = computed(() => {
           {{ shipment.trackingCode }}
         </a>
         <div v-else class="shipment-tracking">{{ shipment.trackingCode }}</div>
-        <div class="shipment-order">{{ t('order') }}: {{ shipment.order || '-' }}</div>
+        <div class="shipment-order">
+          {{ t('order') }}:
+          <a
+            v-if="hasOrderDetails"
+            href="#"
+            class="order-link"
+            @click.prevent="emit('show-order-details', shipment)"
+          >{{ shipment.order || '-' }}</a>
+          <span v-else>{{ shipment.order || '-' }}</span>
+        </div>
       </div>
       <div class="shipment-links">
         <a
@@ -116,14 +147,58 @@ const currentStateInfo = computed(() => {
       </div>
     </div>
 
-    <!-- Show History Button -->
-    <button
+    <!-- Show History Link -->
+    <a
       v-if="shipment.states && shipment.states.length > 0"
-      class="btn btn-small btn-secondary"
-      @click="emit('show-history', shipment)"
-    >
-      {{ t('show_state_history') }}
-    </button>
+      href="#"
+      class="history-link"
+      @click.prevent="emit('show-history', shipment)"
+    >{{ t('show_state_history') }}</a>
+
+    <!-- Estimated Delivery -->
+    <div v-if="formattedEstimatedDelivery" class="shipment-estimated-delivery">
+      {{ t('estimated_delivery') }}: {{ formattedEstimatedDelivery }}
+    </div>
+
+    <!-- Action Buttons -->
+    <hr class="shipment-divider" />
+    <div class="shipment-actions">
+      <button
+        v-if="shipment.hasProofOfDelivery"
+        class="btn btn-small btn-secondary"
+        :disabled="isDownloadingPod"
+        @click="emit('download-pod', shipment)"
+      >
+        <span v-if="isDownloadingPod" class="spinner-inline" />
+        {{ t('pod_download') }}
+      </button>
+      <button v-else class="btn btn-small btn-secondary" disabled :title="t('not_available')">
+        {{ t('pod_download') }}
+      </button>
+
+      <button
+        v-if="shipment.signatureIds && shipment.signatureIds.length > 0"
+        class="btn btn-small btn-secondary"
+        :disabled="isDownloadingSignature"
+        @click="emit('download-signature', shipment)"
+      >
+        <span v-if="isDownloadingSignature" class="spinner-inline" />
+        {{ t('signature_download') }}
+      </button>
+      <button v-else class="btn btn-small btn-secondary" disabled :title="t('not_available')">
+        {{ t('signature_download') }}
+      </button>
+
+      <a
+        v-if="shipment.portalLink"
+        :href="shipment.portalLink"
+        target="_blank"
+        class="btn btn-small btn-secondary"
+      >{{ t('carrier_reroute') }}</a>
+      <button v-else class="btn btn-small btn-secondary" disabled :title="t('not_available')">
+        {{ t('carrier_reroute') }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -169,6 +244,16 @@ const currentStateInfo = computed(() => {
   font-size: 11px;
   color: var(--paqato-text-light);
   margin-top: 2px;
+}
+
+.order-link {
+  color: var(--paqato-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.order-link:hover {
+  text-decoration: underline;
 }
 
 .shipment-links {
@@ -226,6 +311,41 @@ const currentStateInfo = computed(() => {
   color: var(--paqato-text);
 }
 
+/* Estimated Delivery */
+.shipment-estimated-delivery {
+  font-size: 11px;
+  color: var(--paqato-text-light);
+  margin-bottom: 8px;
+}
+
+/* History Link */
+.history-link {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--paqato-primary);
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.history-link:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.shipment-divider {
+  border: none;
+  border-top: 1px solid var(--paqato-border);
+  margin: 0 0 8px 0;
+}
+
+/* Action Buttons */
+.shipment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -253,5 +373,29 @@ const currentStateInfo = computed(() => {
 
 .btn-secondary:hover {
   background-color: var(--paqato-background);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.spinner-inline {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--paqato-border);
+  border-top-color: var(--paqato-warning);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 4px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 </style>
