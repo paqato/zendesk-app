@@ -104,7 +104,7 @@ async function initialize(): Promise<void> {
     // Parallel laden - jedes Panel zeigt seinen Inhalt sobald fertig
     if (settings.value.shipmentHistoryEnabled && requesterEmail.value) {
       shipments.initialize(requesterEmail.value)
-      shipments.load().then(() => {
+      shipments.initialLoad().then(() => {
         if (shipments.isApiKeyInvalid.value) {
           appState.value = 'api-key-invalid'
         }

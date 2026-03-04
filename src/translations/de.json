@@ -92,5 +92,15 @@
   "carrier_reroute": "Umverfügung",
   "not_available": "Nicht verfügbar",
   "no_articles": "Keine Artikel vorhanden",
-  "download_error": "Download fehlgeschlagen"
+  "download_error": "Download fehlgeschlagen",
+  "search_placeholder": "Bestellnr., Tracking-Code, ...",
+  "search_action": "Suchen",
+  "search_scope_all": "Alle Kunden",
+  "search_scope_email_disabled": "Keine Sendungen für diese E-Mail gefunden",
+  "no_shipments_for_email": "Keine Sendungen für {email} gefunden",
+  "no_shipments_for_search": "Keine Treffer für \"{search}\"",
+  "search_hint": "Suchen Sie nach Bestellnr. oder Tracking-Code",
+  "search_min_chars": "Mindestens 4 Zeichen",
+  "search_info_title": "So funktioniert die Suche",
+  "search_info_text": "Die Suche durchsucht Bestellnummern, Tracking-Codes, Kundennummern und weitere Felder. Der E-Mail-Filter schränkt die Ergebnisse auf den Kunden ein. Je mehr Informationen Sie eingeben, desto genauer werden die Ergebnisse sortiert."
 }

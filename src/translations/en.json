@@ -92,5 +92,15 @@
   "carrier_reroute": "Rerouting",
   "not_available": "Not available",
   "no_articles": "No articles available",
-  "download_error": "Download failed"
+  "download_error": "Download failed",
+  "search_placeholder": "Order no., tracking code, ...",
+  "search_action": "Search",
+  "search_scope_all": "All customers",
+  "search_scope_email_disabled": "No shipments found for this email",
+  "no_shipments_for_email": "No shipments found for {email}",
+  "no_shipments_for_search": "No results for \"{search}\"",
+  "search_hint": "Search by order no. or tracking code",
+  "search_min_chars": "At least 4 characters",
+  "search_info_title": "How search works",
+  "search_info_text": "Search looks through order numbers, tracking codes, customer numbers and more. The email filter narrows results to the customer. The more information you provide, the better the results are ranked."
 }
