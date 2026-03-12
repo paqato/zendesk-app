@@ -67,7 +67,7 @@ const formattedEstimatedDelivery = computed(() => {
 })
 
 const hasOrderDetails = computed(() => {
-  return props.shipment.orderDetails !== null
+  return props.shipment.orderDetails != null
 })
 </script>
 

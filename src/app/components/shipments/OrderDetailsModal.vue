@@ -23,8 +23,8 @@ const formattedOrderDate = computed(() => {
 })
 
 const formattedTotalPrice = computed(() => {
-  if (!orderDetails.value || orderDetails.value.totalPrice === null) return null
-  const price = orderDetails.value.totalPrice
+  if (!orderDetails.value || orderDetails.value.totalPrice == null) return null
+  const price = Number(orderDetails.value.totalPrice)
   const currency = orderDetails.value.currency || ''
   return `${price.toFixed(2)} ${currency}`.trim()
 })
@@ -77,7 +77,7 @@ function handleClose(): void {
                 <td>{{ item.articleNumber || '-' }}</td>
                 <td>{{ item.name || '-' }}</td>
                 <td>{{ item.quantity ?? '-' }}</td>
-                <td>{{ item.price ? `${item.price} ${item.currency || ''}`.trim() : '-' }}</td>
+                <td>{{ item.price ? `${Number(item.price).toFixed(2)} ${item.currency || ''}`.trim() : '-' }}</td>
               </tr>
             </tbody>
           </table>
