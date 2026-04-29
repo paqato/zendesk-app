@@ -47,27 +47,27 @@ The app appears as a sidebar panel when viewing tickets in Zendesk Support.
 
 ```bash
 # Install dependencies
-yarn install
+pnpm install
 
 # Start development server
-yarn dev
+pnpm run dev
 
 # Build for production
-yarn build
+pnpm run build
 
 # Build and package as ZIP for Zendesk upload
-yarn package
+pnpm run package
 
 # Type checking
-yarn type-check
+pnpm run type-check
 ```
 
 ### Creating a release
 
 1. Update the version in these 3 files:
-   - `package.json` → `"version": "X.Y.Z"`
-   - `src/manifest.json` → `"version": "X.Y.Z"` (NOT `frameworkVersion` — that's the Zendesk Apps Framework version)
-   - `src/app/composables/useShipments.ts` → `'paqato-plugin-version': 'X.Y'` (API request header)
+    - `package.json` → `"version": "X.Y.Z"`
+    - `src/manifest.json` → `"version": "X.Y.Z"` (NOT `frameworkVersion` — that's the Zendesk Apps Framework version)
+    - `src/app/composables/useShipments.ts` → `'paqato-plugin-version': 'X.Y'` (API request header)
 2. Commit, tag and push your changes. This will trigger a GitHub workflow that builds the app and creates a new release.
 3. Upload the generated `paqato-zendesk-app.zip` to Zendesk.
 
